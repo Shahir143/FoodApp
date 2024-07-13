@@ -8,11 +8,7 @@ import Input from "../../components/Input/Input";
 import { useAuth } from "../../hooks/useAuth";
 
 export default function Login() {
-  const {
-    handleSubmit,
-    register,
-    formState: { errors },
-  } = useForm();
+  
   const navigate = useNavigate();
   const { user, login } = useAuth();
   const [params] = useSearchParams();
@@ -24,6 +20,12 @@ export default function Login() {
     returnUrl ? navigate(returnUrl) : navigate("/");
   }, [user, navigate, returnUrl]);
 
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm();
+  
   const submit = async ({ email, password }) => {
     await login(email, password);
   };

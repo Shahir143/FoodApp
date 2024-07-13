@@ -1,8 +1,11 @@
 import React from "react";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import classes from "./Header.module.css";
+import { useAuth } from "../../hooks/useAuth";
 
-export const Header = () => {
+export default function Header() {
+  const { user, logout } = useAuth;
+
   return (
     <header className={classes.header}>
       <div className={classes.container}>
@@ -11,19 +14,25 @@ export const Header = () => {
         </h1>
         <nav>
           <ul>
-            <li className={classes.menu_container}>
-              <h1>userName</h1>
-              <div className={classes.menu}>
-                <h3 to="/profile">Profile</h3>
-                <h2 to="/orders">Order</h2>
-              </div>
-            </li>
+            {user ? (
+              <li className={classes.menu_container}>
+                <Link to="/dashboard">{user.name}</Link>
+                <div className={classes.menu}>
+                  <Link to="/profile">Profile</Link>
+                  <Link to="/orders">Order</Link>
+                  <a onClick={logout}>Logout</a>
+                </div>
+              </li>
+            ) : (
+              <Link to="/login">Login</Link>
+            )}
+
             <li>
-              <h4 to="/cart">Cart</h4>
+              <Link to="/cart">Cart </Link>
             </li>
           </ul>
         </nav>
       </div>
     </header>
   );
-};
+}
