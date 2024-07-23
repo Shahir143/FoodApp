@@ -7,8 +7,13 @@ import { Button } from "../../components/Button/Button";
 import Input from "../../components/Input/Input";
 import { useAuth } from "../../hooks/useAuth";
 
-export default function Login() {
-  
+export default function LoginPage() {
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm();
+
   const navigate = useNavigate();
   const { user, login } = useAuth();
   const [params] = useSearchParams();
@@ -18,17 +23,12 @@ export default function Login() {
     if (!user) return;
 
     returnUrl ? navigate(returnUrl) : navigate("/");
-  }, [user, navigate, returnUrl]);
+  }, [user]);
 
-  const {
-    handleSubmit,
-    register,
-    formState: { errors },
-  } = useForm();
-  
   const submit = async ({ email, password }) => {
     await login(email, password);
   };
+
   return (
     <div className={classes.container}>
       <div className={classes.details}>
@@ -41,25 +41,27 @@ export default function Login() {
               required: true,
               pattern: {
                 value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,63}$/i,
-                message: "email is not valid",
+                message: "Email Is Not Valid",
               },
             })}
             error={errors.email}
           />
+
           <Input
             type="password"
-            label="password"
+            label="Password"
             {...register("password", {
               required: true,
             })}
             error={errors.password}
           />
-          <Button type="submit" text="login" />
+
+          <Button type="submit" text="Login" />
 
           <div className={classes.register}>
-            New User ? &nbsp;
+            New user? &nbsp;
             <Link to={`/register${returnUrl ? "?returnUrl=" + returnUrl : ""}`}>
-              Register Here
+              Register here
             </Link>
           </div>
         </form>
