@@ -8,7 +8,7 @@ import { toast } from "sonner";
 import { createOrder } from "../../services/orderService";
 import classes from "./CheckOut.module.css";
 import { Title } from "../../components/Title/Title";
-import { Input } from "../../components/Input/Input";
+import Input from "../../components/Input/Input";
 import { Button } from "../../components/Button/Button";
 import OrderItemsList from "../../components/OrderItemList/OrderItemList";
 import Map from "../../components/Map/Map";

@@ -1,7 +1,7 @@
 import {
   PayPalButtons,
   PayPalScriptProvider,
-  usePaypalScriptReducer,
+  usePayPalScriptReducer,
 } from "@paypal/react-paypal-js";
 import React, { useEffect } from "react";
 import { useLoading } from "../../hooks/useLoading";
@@ -26,7 +26,7 @@ export default function PaypalButtons({ order }) {
 function Buttons({ order }) {
   const { clearCart } = useCart();
   const navigate = useNavigate();
-  const [{ isPending }] = usePaypalScriptReducer();
+  const [{ isPending }] = usePayPalScriptReducer();
   const { showLoading, hideLoading } = useLoading();
   useEffect(() => {
     isPending ? showLoading() : hideLoading();

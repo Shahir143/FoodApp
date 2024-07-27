@@ -18,6 +18,7 @@ export const Register = () => {
     if (!user) return;
     returnUrl ? navigate(returnUrl) : navigate("/");
   }, [user]);
+
   const {
     handleSubmit,
     register,
@@ -31,7 +32,7 @@ export const Register = () => {
     <div className={classes.container}>
       <div className={classes.details}>
         <Title title="Register" />
-        <form onSubmit={submitHandle(submit)} noValidate>
+        <form onSubmit={handleSubmit(submitHandle)} noValidate>
           <Input
             type="text"
             label="Name"
