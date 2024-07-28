@@ -1,4 +1,4 @@
-import React, { act, useEffect, useReducer } from "react";
+import React, { useEffect, useReducer } from "react";
 import { useParams } from "react-router-dom";
 import Search from "../../components/Search/Search";
 import Tags from "../../components/Tags/Tags";
@@ -49,7 +49,7 @@ export default function Home() {
     <>
       <Search />
       <Tags tags={tags} />
-      {foods.length === 0 && <NotFound linkText="reset search" />}
+      {foods.length === 0 && <NotFound linkText="Reset search" />}
       <Thumbnails foods={foods} />
     </>
   );

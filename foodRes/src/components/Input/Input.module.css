@@ -2,14 +2,16 @@
   width: 100%;
   height: 100%;
   border: none;
+  border-radius: 10px;
   border-bottom: 0 solid grey;
   transition: border-width 0.15s ease-out;
-  background-color: wheat;
+  background-color: rgb(233, 233, 233);
   font-size: 1.1rem;
   outline: none;
 }
 .input::placeholder {
-  color: #dfdfdf;
+  padding: 20px;
+  color: #8d8d8d;
   font-size: 1rem;
 }
 .input:focus {

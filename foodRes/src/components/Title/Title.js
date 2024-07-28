@@ -1,5 +1,5 @@
-import React from 'react'
+import React from "react";
 
-export const Title = ({title,fontSize, margin}) => {
-  return <h1 style={{fontSize,margin,color:'#616161'}}>{title}</h1>
-}
+export const Title = ({ title, fontSize, margin }) => {
+  return <h1 style={{ fontSize, margin, color: "black" }}>{title}</h1>;
+};

@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
 import Cart from "./pages/Cart/Cart.js";
 import Food from "./pages/Food/Food.js";
 import Home from "./pages/Home/Home.js";
